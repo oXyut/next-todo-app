@@ -25,3 +25,8 @@ body {
     )
     rgb(var(--background-start-rgb));
 }
+
+/* globals.css */
+.text-dark {
+  color: #333; /* あるいは他の暗い色 */
+}
