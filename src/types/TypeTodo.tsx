@@ -1,5 +1,7 @@
+import { TypeUUID } from './TypeUUID';
+
 export type TypeTodo = {
-    id: string;
+    id: TypeUUID;
     name: string;
     completed: boolean;
 }

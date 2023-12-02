@@ -1,8 +1,9 @@
 import '../app/globals.css'
-import { useState, useRef } from 'react'
-import { TypeTodo } from '../types/TypeTodo'
-import TodoList from '../components/TodoList'
+import { useState, useRef, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
+import { TypeTodo } from '../types/TypeTodo'
+import { TypeUUID } from '../types/TypeUUID'
+import TodoList from '../components/TodoList'
 
 
 
@@ -11,7 +12,6 @@ export default function Home() {
   const todoNameRef = useRef<HTMLInputElement|null>(null);
 
   const handleAddTodo = () => {
-    console.log(todoNameRef);
     if (todoNameRef.current === null) return;
     const name = todoNameRef.current.value;
     setTodos((prevTodos: TypeTodo[]) => {
@@ -22,7 +22,7 @@ export default function Home() {
     }
   }
 
-  const toggleTodo = (id: string) => {
+  const toggleTodo = (id: TypeUUID) => {
     const newTodos = [...todos];
     const todo = newTodos.find((todo) => todo.id === id);
     if (todo === undefined) return;
@@ -34,6 +34,11 @@ export default function Home() {
     const newTodos = todos.filter((todo) => !todo.completed);
     setTodos(newTodos);
   }
+
+  // debug
+  useEffect(() => {
+    console.log(todos);
+  }, [todos]);
 
 
   return (
@@ -51,7 +56,7 @@ export default function Home() {
           Clear Completed Todos
         </button>
       </div>
-      <div className="text-center mt-4">
+      <div className="text-center mt-4 text-lg">
         {todos.filter((todo) => !todo.completed).length} left to do
       </div>     
     </div>
