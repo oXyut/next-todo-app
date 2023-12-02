@@ -9,7 +9,7 @@ const TodoList = ({ todos, toggleTodo }: { todos: TypeTodo[], toggleTodo: (id: s
     return (
       <div className="w-full flex flex-col items-center">
         {todos.map((todo) => (
-          <div className="w-full max-w-sm">
+          <div key={todo.id} className="w-full max-w-sm">
             <Todo todo={todo} key={todo.id} toggleTodo={toggleTodo} />
           </div>
         ))}
