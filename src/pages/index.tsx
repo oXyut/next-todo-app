@@ -9,11 +9,12 @@ import TodoList from '../components/TodoList'
 
 export default function Home() {
   const [todos, setTodos] = useState<TypeTodo[]>([]);
-  const todoNameRef = useRef<HTMLInputElement|null>(null);
+  const todoNameRef = useRef<HTMLInputElement>(null);
 
   const handleAddTodo = () => {
     if (todoNameRef.current === null) return;
     const name = todoNameRef.current.value;
+    if (name === '') return; // don't add empty todo
     setTodos((prevTodos: TypeTodo[]) => {
       return [...prevTodos, {id: uuidv4(), name: name, completed: false}]
     });
