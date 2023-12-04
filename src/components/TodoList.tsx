@@ -1,11 +1,11 @@
 import React from 'react'
-import Todo from "./Todo"
+import { Todo } from "./Todo"
 import { TypeTodo } from '../types/TypeTodo'
 import { TypeUUID } from '../types/TypeUUID'
 
 
 
-const TodoList = ({ todos, toggleTodo }: { todos: TypeTodo[], toggleTodo: (id: TypeUUID) => void }) => {
+export const TodoList = ({ todos, toggleTodo }: { todos: TypeTodo[], toggleTodo: (id: TypeUUID) => void }) => {
     return (
       <div className="w-full flex flex-col items-center">
         {todos.map((todo) => (
@@ -16,5 +16,3 @@ const TodoList = ({ todos, toggleTodo }: { todos: TypeTodo[], toggleTodo: (id: T
       </div>
     );
   }
-  
-  export default TodoList;

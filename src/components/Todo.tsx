@@ -1,8 +1,13 @@
 import React from 'react'
 import { TypeTodo } from '../types/TypeTodo'
 
+type TodoProps = {
+  todo: TypeTodo;
+  toggleTodo: (id: string) => void;
+};
 
-function Todo({ todo, toggleTodo }: { todo: TypeTodo, toggleTodo: (id: string) => void }) {
+
+export const Todo = ({ todo, toggleTodo }: TodoProps) => {
 
     const handleTodoClick = () => {
         toggleTodo(todo.id);
@@ -15,6 +20,3 @@ function Todo({ todo, toggleTodo }: { todo: TypeTodo, toggleTodo: (id: string) =
         </div>
       )
 }
-
-
-export default Todo

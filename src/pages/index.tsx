@@ -3,7 +3,7 @@ import { useState, useRef, useEffect } from 'react'
 import { v4 as uuidv4 } from 'uuid';
 import { TypeTodo } from '../types/TypeTodo'
 import { TypeUUID } from '../types/TypeUUID'
-import TodoList from '../components/TodoList'
+import { Button, TodoList } from '../components'
 
 
 
@@ -47,19 +47,17 @@ export default function Home() {
       <h1 className="text-3xl font-bold text-center mb-4">Todo List</h1>
       <div className="flex justify-center items-center mb-4">
         <input type="text" ref={todoNameRef} className="border border-gray-300 p-2 rounded mr-2 text-gray-800 text-dark" />
-        <button onClick={handleAddTodo} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-          Add Todo
-        </button>
+        <Button onClick={handleAddTodo}>Add Todo </Button>
       </div>
       <TodoList todos={todos} toggleTodo={toggleTodo} />
       <div className="text-center mt-4">
-        <button onClick={handleClearTodos} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+        <Button onClick={handleClearTodos} variant="danger">
           Clear Completed Todos
-        </button>
+        </Button>
       </div>
       <div className="text-center mt-4 text-lg">
         {todos.filter((todo) => !todo.completed).length} left to do
-      </div>     
+      </div>
     </div>
   );
 }
