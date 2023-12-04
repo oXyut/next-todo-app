@@ -5,7 +5,7 @@ import { TypeUUID } from '../types/TypeUUID'
 
 
 
-const TodoList = ({ todos, toggleTodo }: { todos: TypeTodo[], toggleTodo: (id: string) => void }) => {
+const TodoList = ({ todos, toggleTodo }: { todos: TypeTodo[], toggleTodo: (id: TypeUUID) => void }) => {
     return (
       <div className="w-full flex flex-col items-center">
         {todos.map((todo) => (
